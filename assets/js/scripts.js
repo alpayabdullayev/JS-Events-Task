@@ -44,7 +44,7 @@ btn.addEventListener('click',(event)=>{
     
 
     //Şərt boş qalmasın
-    if (firstname.value=== '' ||  lastname.value=== ''   ) {
+    if (firstname.value.trim()=== '' ||  lastname.value.trim()=== ''   ) {
         alert('Inputlari tam doldurun')
         return -1
     }
