@@ -9,7 +9,7 @@ const isMarried = document.getElementById('ismaried')
 const btn = document.getElementById('btn')
 
 
-const regex = /^[A-Za-z]+$/;
+const regex = /^[a-zA-ZəƏŞşÇçÖöğıüÜğ ,.'-]+$/;
 
 
 
@@ -54,7 +54,7 @@ btn.addEventListener('click',(event)=>{
         return;
     }
 
-    
+
     if (age.value=== '' || age.value<0) {
         alert("yasi duzgun daxil edin")
         return -1
