@@ -1,6 +1,8 @@
 body{
     background: linear-gradient(to right, #654ea3, #eaafc8);
 }
+
+// Form Start
 #form{
     padding: 40px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -45,9 +47,9 @@ body{
         }
     }
 }
+// Form end
 
-
-
+// Table start
 #table{
     border: 1px solid #000;
     border-collapse: collapse; 
@@ -62,3 +64,4 @@ body{
         padding: 10px 20px;
     }
 }
+// table end
