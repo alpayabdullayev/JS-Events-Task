@@ -9,6 +9,12 @@ const isMarried = document.getElementById('ismaried')
 const btn = document.getElementById('btn')
 
 
+const regex = /^[A-Za-z]+$/;
+
+
+
+
+
 btn.addEventListener('click',(event)=>{
     event.preventDefault()
 
@@ -16,7 +22,17 @@ btn.addEventListener('click',(event)=>{
     const firstNameValue = firstname.value;
     const lastNameValue = lastname.value;
     const ageValue = age.value;
-    const isMarriedValue = isMarried.value;
+    const isMarriedValue = isMarried.checked ? "Evli" : "Bekar";
+    
+    if (isMarried.checked =true) {
+        console.log('evli');
+    }
+    else{
+        console.log('bekar');
+    }
+
+
+
 
 
     const user = document.createElement('tr')
@@ -25,18 +41,32 @@ btn.addEventListener('click',(event)=>{
     const ageTd = document.createElement('td')
     const isMariedTd = document.createElement('td')
     
-    if (firstname.value=== '' ||  lastname.value=== '' || age.value=== '' || isMarried.value=== '') {
+    if (firstname.value=== '' ||  lastname.value=== ''   ) {
         alert('Inputlari tam doldurun')
         return -1
     }
     else{
         user.appendChild(firstNameTd)
         user.appendChild(lastNameTd)
-        user.appendChild(ageTd)
-        user.appendChild(isMariedTd)
-        table.appendChild(user)
+    }
+    if (!regex.test(firstNameValue) || !regex.test(lastNameValue)) {
+        alert('Ad və soyad yalnız hərflərdən ibarət ola bilər.');
+        return;
     }
 
+    
+    if (age.value=== '' || age.value<0) {
+        alert("yasi duzgun daxil edin")
+        return -1
+    }
+    else{
+        user.appendChild(ageTd)
+    }
+
+    if (isMarried.checked) {
+        user.appendChild(isMariedTd);
+    }
+    table.appendChild(user)
     firstNameTd.textContent = firstNameValue;
     lastNameTd.textContent = lastNameValue;
     ageTd.textContent = ageValue;
@@ -45,7 +75,7 @@ btn.addEventListener('click',(event)=>{
     firstname.value = ''
     lastname.value = ''
     age.value = ''
-    isMarried.value = ''
+    isMarried.checked = false;
 })
 
 
